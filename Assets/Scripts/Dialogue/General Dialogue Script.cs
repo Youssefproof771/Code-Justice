@@ -7,27 +7,19 @@ using UnityEngine;
 
 public class GeneralDialogueScript : MonoBehaviour
 {
+    private void Update()
+    {
+        
+    }
     [SerializeField] NPCConversation conversation;
-    private void OnEnable()
-    {
-        ConversationManager.OnConversationEnded += ConversationEnd;
-    }
-
-    private void OnDisable()
-    {
-        ConversationManager.OnConversationEnded -= ConversationEnd;
-    }
-
-    void ConversationEnd()
-    {
-        Destroy(conversation);
-        Destroy(gameObject);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.GameObject().CompareTag("Player"))
         {
-            ConversationManager.Instance.StartConversation(conversation);
+            if (Input.GetKeyDown(KeyCode.E) && !ConversationManager.Instance.IsConversationActive)
+            {
+                ConversationManager.Instance.StartConversation(conversation);
+            }
         }
     }
 
