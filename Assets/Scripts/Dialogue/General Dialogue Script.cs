@@ -16,7 +16,7 @@ public class GeneralDialogueScript : MonoBehaviour
     {
         if (collision.GameObject().CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.E) && !ConversationManager.Instance.IsConversationActive)
+            if (Input.GetKey(KeyCode.E) && !ConversationManager.Instance.IsConversationActive)
             {
                 ConversationManager.Instance.StartConversation(conversation);
             }
