@@ -1,3 +1,4 @@
+using DialogueEditor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float acceleration;
     [SerializeField] LayerMask ground;
+    [SerializeField] NPCConversation conversation;
 
     Rigidbody2D rb;
     BoxCollider2D col;
@@ -16,6 +18,7 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
+        ConversationManager.Instance.StartConversation(conversation);
     }
 
     void Update()
