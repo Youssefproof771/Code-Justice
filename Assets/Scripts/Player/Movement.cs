@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
 
         anim.SetInteger("velocityY",(int)rb.velocity.y);
 
-        if (currentspeed != 0)
+        if (currentspeed > 0.1f || currentspeed < -0.1f)
         {
             anim.SetBool("Walking", true);
         }
@@ -46,12 +46,12 @@ public class Movement : MonoBehaviour
             anim.SetBool("Walking", false);
         }
 
-        if (currentspeed > 0)
+        if (currentspeed > 0.1f)
         {
             //spriteRenderer.flipX = false;
             transform.localScale = new Vector3(1,1,1); 
         }
-        else if (currentspeed < 0) 
+        else if (currentspeed < -0.1f) 
         {
            // spriteRenderer.flipX = true;
             transform.localScale = new Vector3(-1,1,1); 
