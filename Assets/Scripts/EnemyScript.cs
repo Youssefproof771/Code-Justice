@@ -1,3 +1,4 @@
+using BarthaSzabolcs.Tutorial_SpriteFlash;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class EnemyScript : MonoBehaviour
 {
     public int health;
     Animator animator;
+    [SerializeField] SimpleFlash flashEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Allybullet")) 
         {
+            flashEffect.Flash();
             Destroy(collision.gameObject);
             health -= 10;
             if (health <= 0)
